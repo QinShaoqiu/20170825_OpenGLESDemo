@@ -26,12 +26,10 @@
     [self initUI];
 }
 
-
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self.glView stopDisplayLink];
 }
-
 
 - (void)initUI{
     self.glView = [[OpenGLView6 alloc] initWithFrame:(CGRect){10,NavHight + 10,KWidth - 20,KHeight - NavHight - 20 - 100}];
@@ -46,8 +44,8 @@
     [self.stopBtn addTarget:self action:@selector(stopBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
-
 - (void)stopBtnClick{
+    
     if (self.stopBtn.selected) {
         NSLog(@"停止");
         [self.stopBtn setTitle:@"开始" forState:UIControlStateNormal];
@@ -60,8 +58,6 @@
         [self.glView setupDisplayLink];
         self.stopBtn.selected = YES;
     }
-    
 }
-
 
 @end

@@ -46,7 +46,6 @@ typedef struct {
     float Color[4];
 } Vertex;
 
-
 const Vertex Vertices6[] = {
     {{1, -1, 0}, {1, 0, 0, 1}},
     {{1, 1, 0}, {1, 0, 0, 1}},
@@ -57,7 +56,6 @@ const Vertex Vertices6[] = {
     {{-1, 1, -1}, {0, 1, 0, 1}},
     {{-1, -1, -1}, {0, 1, 0, 1}}
 };
-
 
 const GLubyte Indices6[] = {
     // Front
@@ -80,11 +78,10 @@ const GLubyte Indices6[] = {
     0, 7, 4
 };
 
-
-
-
 - (id)initWithFrame:(CGRect)frame{
+    
     self = [super initWithFrame:frame];
+    
     if (self) {
         [self setupLayer];
         [self setupContext];
@@ -100,14 +97,12 @@ const GLubyte Indices6[] = {
     return self;
 }
 
-
 /*
  设置layer class 为 CAEAGLLayer,想要显示OpenGL的内容，你需要把它缺省的layer设置为一个特殊的layer。（CAEAGLLayer）。这里通过直接复写layerClass的方法。
  */
 + (Class)layerClass {
     return [CAEAGLLayer class];
 }
-
 
 /**
  设置layer为不透明（Opaque）
@@ -118,14 +113,15 @@ const GLubyte Indices6[] = {
     _eaglLayer.opaque = YES;
 }
 
-
 /**
  创建OpenGL context
  当你创建一个context，你要声明你要用哪个version的API。这里，我们选择OpenGL ES 2.0.
  */
 - (void)setupContext {
+    
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
     _context = [[EAGLContext alloc] initWithAPI:api];
+    
     if (!_context) {
         NSLog(@"Failed to initialize OpenGLES 2.0 context");
         exit(1);
@@ -137,18 +133,15 @@ const GLubyte Indices6[] = {
     }
 }
 
-
 /**
  创建render buffer （渲染缓冲区）
  Render buffer 是OpenGL的一个对象，用于存放渲染过的图像。
  */
-
 - (void)setupRenderBuffer {
     glGenRenderbuffers(1, &_colorRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
-
 
 /**
  创建一个 frame buffer （帧缓冲区）
@@ -159,7 +152,6 @@ const GLubyte Indices6[] = {
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
 }
-
 
 - (void)compileShaders {
     // 1
@@ -175,6 +167,7 @@ const GLubyte Indices6[] = {
     // 3 检查link状态
     GLint linkSuccess;
     glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
+    
     if (linkSuccess == GL_FALSE) {
         GLchar messages[256];
         glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
@@ -186,25 +179,23 @@ const GLubyte Indices6[] = {
     // 4 让OpenGL执行glProgram
     glUseProgram(programHandle);
     
-    
     // 5
     _positionSlot = glGetAttribLocation(programHandle, "Position");
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);
     
-    //投影
+    // 投影
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
-    //移动
+    // 移动
     _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
 }
-
 
 - (GLuint)compileShader:(NSString *)shaderName withType:(GLenum)shaderType {
     // 1 查找shader文件
     NSString *shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:@"glsl"];
-    
     NSFileManager *mg = [NSFileManager defaultManager];
+    
     if ([mg fileExistsAtPath:shaderPath]) {
         NSLog(@"ok");
     }else{
@@ -213,6 +204,7 @@ const GLubyte Indices6[] = {
     
     NSError *error;
     NSString *shaderString = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
+    
     if (!shaderString) {
         NSLog(@"-----------Error loading shader: %@", error.localizedDescription);
         exit(1);
@@ -232,6 +224,7 @@ const GLubyte Indices6[] = {
     // 5查询shader对象的信息
     GLint compileSuccess;
     glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+    
     if (compileSuccess == GL_FALSE) {
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
@@ -241,11 +234,9 @@ const GLubyte Indices6[] = {
     }
     
     return shaderHandle;
-    
 }
 
-
-//3D方块
+// 3D方块
 - (void)setupVBOs4 {
     GLuint vertexBuffer;
     glGenBuffers(1, &vertexBuffer);
@@ -258,18 +249,16 @@ const GLubyte Indices6[] = {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices6), Indices6, GL_STATIC_DRAW);
 }
 
-
-//动起来了
+// 动起来了
 - (void)setupDisplayLink {
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-
 - (void)render:(CADisplayLink *)displayLink {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     
-    //深度测试
+    // 深度测试
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
@@ -281,7 +270,7 @@ const GLubyte Indices6[] = {
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
     [modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
     
-    //旋转
+    // 旋转
     _currentRotation += displayLink.duration * 90;
     [modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
     
@@ -296,7 +285,6 @@ const GLubyte Indices6[] = {
     
     //[self setupDisplayLink];
 }
-
 
 - (void)stopDisplayLink{
     [_displayLink invalidate];

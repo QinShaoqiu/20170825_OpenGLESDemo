@@ -16,7 +16,7 @@
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *optionTableView;
-@property (nonatomic, strong) NSMutableArray *titleArr;
+@property (nonatomic, strong) NSArray *titleArr;
 
 @end
 
@@ -31,20 +31,32 @@
 
 
 - (void)initTableView{
-    self.titleArr = [[NSMutableArray alloc] initWithArray:@[@"实心方块 深度测试", @"一片绿色", @"一片彩色", @"小片彩色-投影",@"小片彩色 移动+旋转",@"正方体"]];
+    _titleArr = @[@"实心方块 深度测试",
+                  @"一片绿色",
+                  @"一片彩色",
+                  @"小片彩色-投影",
+                  @"小片彩色 移动+旋转",
+                  @"正方体"];
     
     self.optionTableView = [[UITableView alloc] initWithFrame: CGRectMake(5, NavHight, KWidth - 10, KHeight - NavHight)];
     [self.optionTableView setBackgroundColor:[UIColor whiteColor]];
     self.optionTableView.delegate = self;
     self.optionTableView.dataSource = self;
+    self.optionTableView.rowHeight = 60;
     [self.view addSubview:self.optionTableView];
     //self.optionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.optionTableView.tableFooterView = [[UIView alloc] init];
+    
+    if (@available(iOS 11.0, *)) {
+        self.optionTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
-
 #pragma mark - tableView delegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }

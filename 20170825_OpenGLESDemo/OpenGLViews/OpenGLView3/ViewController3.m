@@ -25,7 +25,6 @@
     [self initUI];
 }
 
-
 - (void)initUI{
     self.glView = [[OpenGLView3 alloc] initWithFrame:(CGRect){10,NavHight + 10,KWidth - 20,KHeight - NavHight - 20}];
     [self.view addSubview:self.glView];

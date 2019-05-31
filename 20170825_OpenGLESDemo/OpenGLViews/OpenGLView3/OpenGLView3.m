@@ -49,9 +49,10 @@ const GLubyte Indices[] = {
     2, 3, 0
 };
 
-
 - (id)initWithFrame:(CGRect)frame{
+    
     self = [super initWithFrame:frame];
+    
     if (self) {
         //一片彩色
         [self setupLayer];
@@ -62,11 +63,10 @@ const GLubyte Indices[] = {
         [self compileShaders];
         [self setupVBOs];
         [self render2];
-        
     }
+    
     return self;
 }
-
 
 /*
  设置layer class 为 CAEAGLLayer,想要显示OpenGL的内容，你需要把它缺省的layer设置为一个特殊的layer。（CAEAGLLayer）。这里通过直接复写layerClass的方法。
@@ -74,7 +74,6 @@ const GLubyte Indices[] = {
 + (Class)layerClass {
     return [CAEAGLLayer class];
 }
-
 
 /**
  设置layer为不透明（Opaque）
@@ -85,14 +84,15 @@ const GLubyte Indices[] = {
     _eaglLayer.opaque = YES;
 }
 
-
 /**
  创建OpenGL context
  当你创建一个context，你要声明你要用哪个version的API。这里，我们选择OpenGL ES 2.0.
  */
 - (void)setupContext {
+    
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
     _context = [[EAGLContext alloc] initWithAPI:api];
+    
     if (!_context) {
         NSLog(@"Failed to initialize OpenGLES 2.0 context");
         exit(1);
@@ -104,18 +104,15 @@ const GLubyte Indices[] = {
     }
 }
 
-
 /**
  创建render buffer （渲染缓冲区）
  Render buffer 是OpenGL的一个对象，用于存放渲染过的图像。
  */
-
 - (void)setupRenderBuffer {
     glGenRenderbuffers(1, &_colorRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
-
 
 /**
  创建一个 frame buffer （帧缓冲区）
@@ -126,7 +123,6 @@ const GLubyte Indices[] = {
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
 }
-
 
 /**
  清理屏幕
@@ -150,7 +146,6 @@ const GLubyte Indices[] = {
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
-
 
 - (void)compileShaders {
     // 1
@@ -177,21 +172,18 @@ const GLubyte Indices[] = {
     // 4 让OpenGL执行glProgram
     glUseProgram(programHandle);
     
-    
     // 5
     _positionSlot = glGetAttribLocation(programHandle, "Position");
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);
-    
 }
-
 
 - (GLuint)compileShader:(NSString *)shaderName withType:(GLenum)shaderType {
     // 1 查找shader文件
     NSString *shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:@"glsl"];
-    
     NSFileManager *mg = [NSFileManager defaultManager];
+    
     if ([mg fileExistsAtPath:shaderPath]) {
         NSLog(@"ok");
     }else{
@@ -200,6 +192,7 @@ const GLubyte Indices[] = {
     
     NSError *error;
     NSString *shaderString = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
+    
     if (!shaderString) {
         NSLog(@"-----------Error loading shader: %@", error.localizedDescription);
         exit(1);
@@ -219,6 +212,7 @@ const GLubyte Indices[] = {
     // 5查询shader对象的信息
     GLint compileSuccess;
     glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+    
     if (compileSuccess == GL_FALSE) {
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
@@ -228,9 +222,7 @@ const GLubyte Indices[] = {
     }
     
     return shaderHandle;
-    
 }
-
 
 - (void)setupVBOs {
     GLuint vertexBuffer;
@@ -243,6 +235,5 @@ const GLubyte Indices[] = {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
 }
-
 
 @end

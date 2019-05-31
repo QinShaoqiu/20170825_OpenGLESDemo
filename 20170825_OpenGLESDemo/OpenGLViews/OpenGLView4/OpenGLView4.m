@@ -18,32 +18,29 @@
     EAGLContext *_context;
     GLuint _colorRenderBuffer;
     
-    //着色器
+    // 着色器
     GLuint _positionSlot;
     GLuint _colorSlot;
     
-    //投影
+    // 投影
     GLuint _projectionUniform;
 }
 
 @end
 
-
 @implementation OpenGLView4
 
-//1. 一个用于跟踪所有顶点信息的结构Vertex （目前只包含位置和颜色。）
+// 1. 一个用于跟踪所有顶点信息的结构Vertex （目前只包含位置和颜色。）
 typedef struct {
     float Position[3];
     float Color[4];
 } Vertex;
 
-
-//3. 一个用于表示三角形顶点的数组。
+// 3. 一个用于表示三角形顶点的数组。
 const GLubyte Indices4[] = {
     0, 1, 2,
     2, 3, 0
 };
-
 
 
 /*
@@ -56,9 +53,10 @@ const Vertex Vertices4[] = {
     {{-1, -1, -7}, {0, 0, 0, 1}}
 };
 
-
 - (id)initWithFrame:(CGRect)frame{
+    
     self = [super initWithFrame:frame];
+    
     if (self) {
         //彩色色块加投影
         [self setupLayer];
@@ -70,9 +68,9 @@ const Vertex Vertices4[] = {
         [self setupVBOs2];
         [self render3];
     }
+    
     return self;
 }
-
 
 /*
  设置layer class 为 CAEAGLLayer,想要显示OpenGL的内容，你需要把它缺省的layer设置为一个特殊的layer。（CAEAGLLayer）。这里通过直接复写layerClass的方法。
@@ -80,7 +78,6 @@ const Vertex Vertices4[] = {
 + (Class)layerClass {
     return [CAEAGLLayer class];
 }
-
 
 /**
  设置layer为不透明（Opaque）
@@ -91,14 +88,15 @@ const Vertex Vertices4[] = {
     _eaglLayer.opaque = YES;
 }
 
-
 /**
  创建OpenGL context
  当你创建一个context，你要声明你要用哪个version的API。这里，我们选择OpenGL ES 2.0.
  */
 - (void)setupContext {
+    
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
     _context = [[EAGLContext alloc] initWithAPI:api];
+    
     if (!_context) {
         NSLog(@"Failed to initialize OpenGLES 2.0 context");
         exit(1);
@@ -109,7 +107,6 @@ const Vertex Vertices4[] = {
         exit(1);
     }
 }
-
 
 /**
  创建render buffer （渲染缓冲区）
@@ -122,7 +119,6 @@ const Vertex Vertices4[] = {
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
 
-
 /**
  创建一个 frame buffer （帧缓冲区）
  */
@@ -133,12 +129,10 @@ const Vertex Vertices4[] = {
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
 }
 
-
 /**
  清理屏幕
  为了尽快在屏幕上显示一些什么，在我们和那些 vertexes、shaders打交道之前，把屏幕清理一下，显示另一个颜色吧。（RGB 0, 104, 55，绿色吧）
  */
-
 - (void)render3 {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -164,7 +158,6 @@ const Vertex Vertices4[] = {
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-
 - (void)compileShaders {
     // 1
     GLuint vertexShader = [self compileShader:@"SimpleVertex4" withType:GL_VERTEX_SHADER];
@@ -179,6 +172,7 @@ const Vertex Vertices4[] = {
     // 3 检查link状态
     GLint linkSuccess;
     glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
+    
     if (linkSuccess == GL_FALSE) {
         GLchar messages[256];
         glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
@@ -190,7 +184,6 @@ const Vertex Vertices4[] = {
     // 4 让OpenGL执行glProgram
     glUseProgram(programHandle);
     
-    
     // 5
     _positionSlot = glGetAttribLocation(programHandle, "Position");
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
@@ -201,12 +194,11 @@ const Vertex Vertices4[] = {
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
 }
 
-
 - (GLuint)compileShader:(NSString *)shaderName withType:(GLenum)shaderType {
     // 1 查找shader文件
     NSString *shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:@"glsl"];
-    
     NSFileManager *mg = [NSFileManager defaultManager];
+    
     if ([mg fileExistsAtPath:shaderPath]) {
         NSLog(@"ok");
     }else{
@@ -215,6 +207,7 @@ const Vertex Vertices4[] = {
     
     NSError *error;
     NSString *shaderString = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
+    
     if (!shaderString) {
         NSLog(@"-----------Error loading shader: %@", error.localizedDescription);
         exit(1);
@@ -234,6 +227,7 @@ const Vertex Vertices4[] = {
     // 5查询shader对象的信息
     GLint compileSuccess;
     glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+    
     if (compileSuccess == GL_FALSE) {
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
@@ -243,9 +237,7 @@ const Vertex Vertices4[] = {
     }
     
     return shaderHandle;
-    
 }
-
 
 - (void)setupVBOs2 {
     GLuint vertexBuffer;
@@ -258,7 +250,5 @@ const Vertex Vertices4[] = {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices4), Indices4, GL_STATIC_DRAW);
 }
-
-
 
 @end
