@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BE10399BCA849897D90E45B /* libPods-20170825_OpenGLESDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A0A4E8A49740364B466F62 /* libPods-20170825_OpenGLESDemo.a */; };
 		E1107B221F4FB77300213055 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B211F4FB77300213055 /* main.m */; };
 		E1107B251F4FB77300213055 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B241F4FB77300213055 /* AppDelegate.m */; };
 		E1107B281F4FB77300213055 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B271F4FB77300213055 /* ViewController.m */; };
@@ -15,7 +16,6 @@
 		E1107B301F4FB77300213055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1107B2E1F4FB77300213055 /* LaunchScreen.storyboard */; };
 		E1107B3B1F4FB77300213055 /* _0170825_OpenGLESDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B3A1F4FB77300213055 /* _0170825_OpenGLESDemoTests.m */; };
 		E1107B461F4FB77300213055 /* _0170825_OpenGLESDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B451F4FB77300213055 /* _0170825_OpenGLESDemoUITests.m */; };
-		E1107B571F4FB79300213055 /* SHSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B561F4FB79300213055 /* SHSuperViewController.m */; };
 		E1107B5A1F4FB83300213055 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1107B591F4FB83300213055 /* OpenGLES.framework */; };
 		E1107B5C1F4FB83D00213055 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1107B5B1F4FB83D00213055 /* QuartzCore.framework */; };
 		E1107B7F1F4FFE6400213055 /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1107B761F4FFE6400213055 /* CC3Foundation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -40,6 +40,15 @@
 		E158E6AB1F54165200E0F13E /* ViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = E158E6961F54165200E0F13E /* ViewController5.m */; };
 		E158E6AC1F54165200E0F13E /* OpenGLView6.m in Sources */ = {isa = PBXBuildFile; fileRef = E158E6991F54165200E0F13E /* OpenGLView6.m */; };
 		E158E6AD1F54165200E0F13E /* ViewController6.m in Sources */ = {isa = PBXBuildFile; fileRef = E158E69B1F54165200E0F13E /* ViewController6.m */; };
+		EE37EE9B235337B400EAF882 /* GPUImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE37EE9A235337B400EAF882 /* GPUImageViewController.m */; };
+		EE37EEA22353443F00EAF882 /* GPUCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE37EEA12353443F00EAF882 /* GPUCameraViewController.m */; };
+		EE37EEA52353447500EAF882 /* GPUImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE37EEA42353447500EAF882 /* GPUImageCollectionViewCell.m */; };
+		EEB9D14C2351E96E009048D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D14B2351E96E009048D0 /* Foundation.framework */; };
+		EEB9D14E2351E975009048D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D14D2351E975009048D0 /* UIKit.framework */; };
+		EEB9D1502351E97B009048D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D14F2351E97B009048D0 /* CoreGraphics.framework */; };
+		EEB9D1522351E980009048D0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D1512351E980009048D0 /* CoreMedia.framework */; };
+		EEB9D1542351E986009048D0 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D1532351E986009048D0 /* CoreVideo.framework */; };
+		EEB9D1562351E98F009048D0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB9D1552351E98F009048D0 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29A0A4E8A49740364B466F62 /* libPods-20170825_OpenGLESDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-20170825_OpenGLESDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEF8C38972FBBDDDE6F4143 /* Pods-20170825_OpenGLESDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20170825_OpenGLESDemo.release.xcconfig"; path = "Target Support Files/Pods-20170825_OpenGLESDemo/Pods-20170825_OpenGLESDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7088240CD76810351ED9B50D /* Pods-20170825_OpenGLESDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20170825_OpenGLESDemo.debug.xcconfig"; path = "Target Support Files/Pods-20170825_OpenGLESDemo/Pods-20170825_OpenGLESDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E1107B1D1F4FB77300213055 /* 20170825_OpenGLESDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20170825_OpenGLESDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1107B211F4FB77300213055 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1107B231F4FB77300213055 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,9 +88,6 @@
 		E1107B411F4FB77300213055 /* 20170825_OpenGLESDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 20170825_OpenGLESDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1107B451F4FB77300213055 /* _0170825_OpenGLESDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _0170825_OpenGLESDemoUITests.m; sourceTree = "<group>"; };
 		E1107B471F4FB77300213055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1107B541F4FB79300213055 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
-		E1107B551F4FB79300213055 /* SHSuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSuperViewController.h; sourceTree = "<group>"; };
-		E1107B561F4FB79300213055 /* SHSuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSuperViewController.m; sourceTree = "<group>"; };
 		E1107B591F4FB83300213055 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E1107B5B1F4FB83D00213055 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E1107B751F4FFE6400213055 /* CC3Foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Foundation.h; sourceTree = "<group>"; };
@@ -121,6 +130,19 @@
 		E158E6991F54165200E0F13E /* OpenGLView6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView6.m; sourceTree = "<group>"; };
 		E158E69A1F54165200E0F13E /* ViewController6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController6.h; sourceTree = "<group>"; };
 		E158E69B1F54165200E0F13E /* ViewController6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController6.m; sourceTree = "<group>"; };
+		EE37EE99235337B400EAF882 /* GPUImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageViewController.h; sourceTree = "<group>"; };
+		EE37EE9A235337B400EAF882 /* GPUImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageViewController.m; sourceTree = "<group>"; };
+		EE37EEA02353443F00EAF882 /* GPUCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUCameraViewController.h; sourceTree = "<group>"; };
+		EE37EEA12353443F00EAF882 /* GPUCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUCameraViewController.m; sourceTree = "<group>"; };
+		EE37EEA32353447400EAF882 /* GPUImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCollectionViewCell.h; sourceTree = "<group>"; };
+		EE37EEA42353447500EAF882 /* GPUImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageCollectionViewCell.m; sourceTree = "<group>"; };
+		EEB9CBC523518155009048D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		EEB9D14B2351E96E009048D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EEB9D14D2351E975009048D0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EEB9D14F2351E97B009048D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EEB9D1512351E980009048D0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EEB9D1532351E986009048D0 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		EEB9D1552351E98F009048D0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +150,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB9D1562351E98F009048D0 /* AVFoundation.framework in Frameworks */,
+				EEB9D1542351E986009048D0 /* CoreVideo.framework in Frameworks */,
+				EEB9D1522351E980009048D0 /* CoreMedia.framework in Frameworks */,
+				EEB9D1502351E97B009048D0 /* CoreGraphics.framework in Frameworks */,
+				EEB9D14E2351E975009048D0 /* UIKit.framework in Frameworks */,
+				EEB9D14C2351E96E009048D0 /* Foundation.framework in Frameworks */,
 				E1107B5C1F4FB83D00213055 /* QuartzCore.framework in Frameworks */,
 				E1107B5A1F4FB83300213055 /* OpenGLES.framework in Frameworks */,
+				8BE10399BCA849897D90E45B /* libPods-20170825_OpenGLESDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +187,7 @@
 				E1107B441F4FB77300213055 /* 20170825_OpenGLESDemoUITests */,
 				E1107B1E1F4FB77300213055 /* Products */,
 				E1107B581F4FB83200213055 /* Frameworks */,
+				E616C340E1A296261919E89E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,13 +204,14 @@
 		E1107B1F1F4FB77300213055 /* 20170825_OpenGLESDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EE37EE9F235337D000EAF882 /* GPU */,
 				E158E6771F54165200E0F13E /* OpenGLViews */,
 				E1107B741F4FFE6400213055 /* Cocos3DMathLib */,
-				E1107B531F4FB79300213055 /* general */,
 				E1107B231F4FB77300213055 /* AppDelegate.h */,
 				E1107B241F4FB77300213055 /* AppDelegate.m */,
 				E1107B261F4FB77300213055 /* ViewController.h */,
 				E1107B271F4FB77300213055 /* ViewController.m */,
+				EEB9CBC523518155009048D0 /* PrefixHeader.pch */,
 				E1107B291F4FB77300213055 /* Main.storyboard */,
 				E1107B2C1F4FB77300213055 /* Assets.xcassets */,
 				E1107B2E1F4FB77300213055 /* LaunchScreen.storyboard */,
@@ -216,21 +247,18 @@
 			path = 20170825_OpenGLESDemoUITests;
 			sourceTree = "<group>";
 		};
-		E1107B531F4FB79300213055 /* general */ = {
-			isa = PBXGroup;
-			children = (
-				E1107B541F4FB79300213055 /* general.h */,
-				E1107B551F4FB79300213055 /* SHSuperViewController.h */,
-				E1107B561F4FB79300213055 /* SHSuperViewController.m */,
-			);
-			path = general;
-			sourceTree = "<group>";
-		};
 		E1107B581F4FB83200213055 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEB9D1552351E98F009048D0 /* AVFoundation.framework */,
+				EEB9D1532351E986009048D0 /* CoreVideo.framework */,
+				EEB9D1512351E980009048D0 /* CoreMedia.framework */,
+				EEB9D14F2351E97B009048D0 /* CoreGraphics.framework */,
+				EEB9D14D2351E975009048D0 /* UIKit.framework */,
+				EEB9D14B2351E96E009048D0 /* Foundation.framework */,
 				E1107B5B1F4FB83D00213055 /* QuartzCore.framework */,
 				E1107B591F4FB83300213055 /* OpenGLES.framework */,
+				29A0A4E8A49740364B466F62 /* libPods-20170825_OpenGLESDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,12 +283,13 @@
 		E158E6771F54165200E0F13E /* OpenGLViews */ = {
 			isa = PBXGroup;
 			children = (
+				EEB9CBC6235184B8009048D0 /* OPenGLStart */,
+				E158E6781F54165200E0F13E /* OpenGLView1 */,
 				E158E67D1F54165200E0F13E /* OpenGLView2 */,
 				E158E6821F54165200E0F13E /* OpenGLView3 */,
 				E158E6891F54165200E0F13E /* OpenGLView4 */,
 				E158E6901F54165200E0F13E /* OpenGLView5 */,
 				E158E6971F54165200E0F13E /* OpenGLView6 */,
-				E158E6781F54165200E0F13E /* OpenGLView1 */,
 			);
 			path = OpenGLViews;
 			sourceTree = "<group>";
@@ -337,6 +366,35 @@
 			path = OpenGLView6;
 			sourceTree = "<group>";
 		};
+		E616C340E1A296261919E89E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7088240CD76810351ED9B50D /* Pods-20170825_OpenGLESDemo.debug.xcconfig */,
+				4FEF8C38972FBBDDDE6F4143 /* Pods-20170825_OpenGLESDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EE37EE9F235337D000EAF882 /* GPU */ = {
+			isa = PBXGroup;
+			children = (
+				EE37EEA32353447400EAF882 /* GPUImageCollectionViewCell.h */,
+				EE37EEA42353447500EAF882 /* GPUImageCollectionViewCell.m */,
+				EE37EEA02353443F00EAF882 /* GPUCameraViewController.h */,
+				EE37EEA12353443F00EAF882 /* GPUCameraViewController.m */,
+				EE37EE99235337B400EAF882 /* GPUImageViewController.h */,
+				EE37EE9A235337B400EAF882 /* GPUImageViewController.m */,
+			);
+			path = GPU;
+			sourceTree = "<group>";
+		};
+		EEB9CBC6235184B8009048D0 /* OPenGLStart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OPenGLStart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,9 +402,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1107B4A1F4FB77300213055 /* Build configuration list for PBXNativeTarget "20170825_OpenGLESDemo" */;
 			buildPhases = (
+				99C116600BBB3CC2D23CD46E /* [CP] Check Pods Manifest.lock */,
 				E1107B191F4FB77300213055 /* Sources */,
 				E1107B1A1F4FB77300213055 /* Frameworks */,
 				E1107B1B1F4FB77300213055 /* Resources */,
+				3602D4ACC1F1D2FC1A03562E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -404,7 +464,7 @@
 				TargetAttributes = {
 					E1107B1C1F4FB77300213055 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = V773G65KWZ;
+						DevelopmentTeam = 5TU58AVC9D;
 						ProvisioningStyle = Automatic;
 					};
 					E1107B351F4FB77300213055 = {
@@ -426,6 +486,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -474,6 +535,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3602D4ACC1F1D2FC1A03562E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-20170825_OpenGLESDemo/Pods-20170825_OpenGLESDemo-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-20170825_OpenGLESDemo/Pods-20170825_OpenGLESDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99C116600BBB3CC2D23CD46E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-20170825_OpenGLESDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1107B191F4FB77300213055 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -491,9 +603,11 @@
 				E158E6A31F54165200E0F13E /* ViewController3.m in Sources */,
 				E158E69F1F54165200E0F13E /* ViewController2.m in Sources */,
 				E1107B821F4FFE6400213055 /* CC3Math.m in Sources */,
+				EE37EEA22353443F00EAF882 /* GPUCameraViewController.m in Sources */,
 				E1107B221F4FB77300213055 /* main.m in Sources */,
+				EE37EE9B235337B400EAF882 /* GPUImageViewController.m in Sources */,
+				EE37EEA52353447500EAF882 /* GPUImageCollectionViewCell.m in Sources */,
 				E1107B801F4FFE6400213055 /* CC3GLMatrix.m in Sources */,
-				E1107B571F4FB79300213055 /* SHSuperViewController.m in Sources */,
 				E158E6AC1F54165200E0F13E /* OpenGLView6.m in Sources */,
 				E158E6AB1F54165200E0F13E /* ViewController5.m in Sources */,
 				E158E69E1F54165200E0F13E /* OpenGLView2.m in Sources */,
@@ -582,7 +696,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -630,7 +744,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -647,33 +761,51 @@
 		};
 		E1107B4B1F4FB77300213055 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7088240CD76810351ED9B50D /* Pods-20170825_OpenGLESDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = V773G65KWZ;
+				DEVELOPMENT_TEAM = 5TU58AVC9D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/20170825_OpenGLESDemo/playLib",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/20170825_OpenGLESDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = 20170825_OpenGLESDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E1107B4C1F4FB77300213055 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FEF8C38972FBBDDDE6F4143 /* Pods-20170825_OpenGLESDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = V773G65KWZ;
+				DEVELOPMENT_TEAM = 5TU58AVC9D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/20170825_OpenGLESDemo/playLib",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/20170825_OpenGLESDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = 20170825_OpenGLESDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -684,6 +816,10 @@
 				DEVELOPMENT_TEAM = V773G65KWZ;
 				INFOPLIST_FILE = 20170825_OpenGLESDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/20170825_OpenGLESDemo.app/20170825_OpenGLESDemo";
@@ -697,6 +833,10 @@
 				DEVELOPMENT_TEAM = V773G65KWZ;
 				INFOPLIST_FILE = 20170825_OpenGLESDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/20170825_OpenGLESDemo.app/20170825_OpenGLESDemo";
@@ -709,6 +849,10 @@
 				DEVELOPMENT_TEAM = V773G65KWZ;
 				INFOPLIST_FILE = 20170825_OpenGLESDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = 20170825_OpenGLESDemo;
@@ -721,6 +865,10 @@
 				DEVELOPMENT_TEAM = V773G65KWZ;
 				INFOPLIST_FILE = 20170825_OpenGLESDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/20170825_OpenGLESDemo/GPUImage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "longsee.com.-0170825-OpenGLESDemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = 20170825_OpenGLESDemo;

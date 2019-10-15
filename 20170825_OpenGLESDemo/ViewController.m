@@ -6,6 +6,34 @@
 //  Copyright © 2017年 shaoqiu. All rights reserved.
 //
 
+/**
+ OpenGL坐标系不同于UIKit坐标系
+ UIKit坐标系
+  0,0 ---------
+    |         |
+    |         |
+    |------- |(w,h)
+ 
+ OpenGL
+     ---------(1,1)
+     |         |
+     |         |
+(-1,-1) |------- |
+ 
+ 还有一点需要注意，默认情况各个方向坐标值范围为（-1，1) 而不是UIKit中的（0，w)（0，h)
+ 在ES1中，可以通过以下代码将坐标系转化为熟悉的（320，480）
+ 
+ - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+     glViewport(0, 0, rect.size.width * 2, rect.size.height * 2);
+     glMatrixMode(GL_PROJECTION);
+     glLoadIdentity();
+     glOrthof(0, 320, 0, 480, -1024, 1024);
+     glMatrixMode(GL_MODELVIEW);
+     glLoadIdentity();
+ }
+ 
+ */
+
 #import "ViewController.h"
 #import "ViewController1.h"
 #import "ViewController2.h"
@@ -13,6 +41,8 @@
 #import "ViewController4.h"
 #import "ViewController5.h"
 #import "ViewController6.h"
+#import "GPUImageViewController.h"
+#import "GPUCameraViewController.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *optionTableView;
@@ -25,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNavTitleBtnTitle:@"OpenGL"];
+    self.title = @"OpenGL";
     [self initTableView];
 }
 
@@ -36,9 +66,11 @@
                   @"一片彩色",
                   @"小片彩色-投影",
                   @"小片彩色 移动+旋转",
-                  @"正方体"];
+                  @"正方体",
+                  @"GPUImage photo",
+                  @"GPUImage camera"];
     
-    self.optionTableView = [[UITableView alloc] initWithFrame: CGRectMake(5, NavHight, KWidth - 10, KHeight - NavHight)];
+    self.optionTableView = [[UITableView alloc] initWithFrame: CGRectMake(5, kTopBarSafeHeight, kScreenWidth - 10, kScreenHeight - kTopBarSafeHeight)];
     [self.optionTableView setBackgroundColor:[UIColor whiteColor]];
     self.optionTableView.delegate = self;
     self.optionTableView.dataSource = self;
@@ -123,7 +155,7 @@
 
         case 4:
         {
-            //4
+            //5
             ViewController5 *vc = [[ViewController5 alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -131,11 +163,26 @@
             
         case 5:
         {
-            //4
+            //6
             ViewController6 *vc = [[ViewController6 alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+            case 6:
+            {
+                //7
+                GPUImageViewController *vc = [[GPUImageViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            
+            case 7:
+            {
+                GPUCameraViewController *vc = [[GPUCameraViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
             
         default:
             break;
@@ -143,3 +190,4 @@
 }
 
 @end
+

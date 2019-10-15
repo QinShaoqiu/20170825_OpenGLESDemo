@@ -20,9 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNavTitleBtnTitle:@"OpenGLESDemo"];
-    [self setNavBackBtnTitle:@"back"];
-    
+    self.title = @"OpenGLESDemo";
+
     [self initUI];
 }
 
@@ -32,9 +31,9 @@
 }
 
 - (void)initUI{
-    self.glView = [[OpenGLView6 alloc] initWithFrame:(CGRect){10,NavHight + 10,KWidth - 20,KHeight - NavHight - 20 - 100}];
+    self.glView = [[OpenGLView6 alloc] initWithFrame:(CGRect){10,kTopBarSafeHeight + 10,kScreenWidth - 20,kScreenHeight - kTopBarSafeHeight - 20 - 100}];
     [self.view addSubview:self.glView];
-    self.stopBtn = [[UIButton alloc] initWithFrame:(CGRect){0,KHeight - 20 - 50,KWidth,50}];
+    self.stopBtn = [[UIButton alloc] initWithFrame:(CGRect){0,kScreenHeight - 20 - 50,kScreenWidth,50}];
     [self.stopBtn setTitle:@"停止" forState:UIControlStateNormal];
     [self.stopBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.stopBtn setBackgroundColor:[UIColor greenColor]];

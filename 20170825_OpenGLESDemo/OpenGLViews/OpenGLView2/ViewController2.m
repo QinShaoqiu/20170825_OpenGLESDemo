@@ -19,14 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNavTitleBtnTitle:@"OpenGLESDemo"];
-    [self setNavBackBtnTitle:@"back"];
-    
+    self.title = @"OpenGLESDemo";
+ 
     [self initUI];
 }
 
 - (void)initUI{
-    self.glView = [[OpenGLView2 alloc] initWithFrame:(CGRect){10,NavHight + 10,KWidth - 20,KHeight - NavHight - 20}];
+    self.glView = [[OpenGLView2 alloc] initWithFrame:(CGRect){10,kTopBarSafeHeight + 10,kScreenWidth - 20,kScreenHeight - kTopBarSafeHeight - 20}];
     [self.view addSubview:self.glView];
 }
 

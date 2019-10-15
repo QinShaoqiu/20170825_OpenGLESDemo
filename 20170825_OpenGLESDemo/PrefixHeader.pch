@@ -1,0 +1,140 @@
+//
+//  PrefixHeader.pch
+//  20170825_OpenGLESDemo
+//
+//  Created by qinshaoqing on 2019/10/12.
+//  Copyright © 2019 shaoqiu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+    
+#import "GPUImage.h"
+
+#endif
+
+
+// 随机色号
+#define kRandomColor                          [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+// 16进制色号
+#define kRGBColor(rgbValue)                   [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
+
+// 16进制色号,带透明度
+#define kRGBColorAlpha(hexValue, alphaValue)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0x00FF00) >> 8))/255.0 blue:((float)(hexValue & 0x0000FF))/255.0 alpha:alphaValue]
+
+#define kRGB(r, g, b)                         [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
+#define kRGBA(r, g, b, a)                     [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+
+
+// 项目色号
+#define BHD_NavigationBarColor               kRGBColor(0xe60012)
+#define BHD_NavigationBarTitleNormalColor    kRGBColorAlpha(0xffffff, 0.68)
+#define BHD_NavigationBarTitleSelectedColor  kRGBColor(0xffffff)
+#define BHD_NavigationTitleColor             kRGBColor(0xffffff)
+
+#define BHD_ViewBackgroundColor              kRGBColor(0x252525)
+#define BHD_DeviceCellBackgroundColor        kRGBColor(0x3a3a3a)
+#define BHD_GroupCellBackgroundColor         kRGBColor(0x303030)
+#define BHD_CellTitleTextColor               kRGBColorAlpha(0xffffff, 0.7)
+#define BHD_CellDetailTextColor              kRGBColorAlpha(0xffffff, 0.3)
+
+#define BHD_BottomBtnTextColor              kRGBColorAlpha(0xffffff, 0.6)
+
+#define BHD_LoginViewBgColor                 kRGBColor(0xffffff)
+#define BHD_UserBgColor                      kRGBColor(0x1c1c1c)
+
+#define BHD_SegmentedControlTextcolor        kRGBColor(0xacacac)
+#define BHD_SelectGroupBackColor             kRGBColor(0x303030)
+
+#define BHD_UnbindTextColor                  kRGBColor(0x989898)
+#define BHD_snTFBgColor                      kRGBColor(0x292828)
+
+
+// 字体
+#define kFontSystem(x)                         [UIFont systemFontOfSize:x]
+#define kFontLight(x)                          [UIFont fontWithName:@"PingFangSC-Light" size:x]       // 苹方-简 细体
+#define kFontUltralight(x)                     [UIFont fontWithName:@"PingFangSC-Ultralight" size:x]  // 苹方-简 极细体
+#define kFontRegular(x)                        [UIFont fontWithName:@"PingFangSC-Regular" size:x]     // 苹方-简 常规体
+#define kFontThin(x)                           [UIFont fontWithName:@"PingFangSC-Thin" size:x]        // 苹方-简 纤细体
+#define kFontMedium(x)                         [UIFont fontWithName:@"PingFangSC-Medium" size:x]      // 苹方-简 中黑体
+#define kFontSemibold(x)                       [UIFont fontWithName:@"PingFangSC-Semibold" size:x]    // 苹方-简 中粗体
+#define kFontHeavy(x)                          [UIFont fontWithName:@"PingFangSC-Heavy" size:x]
+
+
+
+#ifdef DEBUG
+
+#define BHDLog(fmt, ...)         NSLog((@"[BHD] " fmt), ##__VA_ARGS__);
+#define kDLog(fmt, ...)          {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
+#define kFLog(FORMAT, ...)       fprintf(stderr, "%s:%zd\t%s\n", [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+#else
+
+#define BHDLog( ...)
+#define kDLog(fmt, ...)
+#define kFLog(FORMAT, ...) nil
+
+#endif
+
+// 系统版本
+#define kiOS8            [[UIDevice currentDevice].systemVersion floatValue] >= 8.0
+#define kiOS9            [[UIDevice currentDevice].systemVersion floatValue] >= 9.0
+#define kiOS11           [[UIDevice currentDevice].systemVersion floatValue] >= 11.0
+#define kiOS12           [[UIDevice currentDevice].systemVersion floatValue] >= 12.0
+
+// 手机屏幕适配
+#define kIsPhone5                              ([UIScreen instancesRespondToSelector: @selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kIsPhone6                              ([UIScreen instancesRespondToSelector: @selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750,1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kIsPhone6p                             ([UIScreen instancesRespondToSelector: @selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242,2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kIsPhone4                              ([UIScreen instancesRespondToSelector: @selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kIsPhoneX                              ([UIScreen instancesRespondToSelector: @selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+// 弱引用
+#define kClassWeak(weakClass)     __weak typeof(self) weakClass = self
+
+// 布局相关
+#define kScreenWidth                          [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight                         [UIScreen mainScreen].bounds.size.height
+#define kStatusBarHeight                      (kIsPhoneX? (44.0):(20.0))  // 状态栏高度
+#define kNavBarHeight                         (44)                        // 导航栏高度
+#define kNavBarAndStatusBarHeight             (kIsPhoneX ? 88 : 64)       // 状态栏和导航栏总高度
+#define kTabBarHeight                         (kIsPhoneX ? (49.0 + 34.0):(49.0)) // TabBar高度
+#define kTopBarSafeHeight                     (0)  // 顶部安全距离，该值取决于(0,0)坐标的位置。若(0,0)在导航栏左下角，取值为0，若(0,0)在导航栏左上角，取值为导航栏的高
+#define kBottomSafeHeight                     (0)  // 底部安全距离
+#define kLeftTabBarWidth                      112
+
+#define kViewWidth(v)                         (v.frame.size.width)
+#define kViewHeight(v)                        (v.frame.size.height)
+#define kViewX(v)                             (v.frame.origin.x)
+#define kViewY(v)                             (v.frame.origin.y)
+#define kView_BX(view)                        (view.frame.origin.x + view.frame.size.width)
+#define kView_BY(view)                        (view.frame.origin.y + view.frame.size.height)
+
+
+/*全局平局数 以iPhone 6 做标准高度667 宽度375*/
+#define kProonHeight(x)                        (x / 667.f) * kScreenHeight
+#define kProonWidth(x)                         (x / 375.f) * kScreenWidth
+
+#define kLeftContentViewWidth                  (kScreenWidth - kLeftTabBarWidth - 10) / 2 - 10
+#define kRightContentViewWidth                 (kScreenWidth - kLeftTabBarWidth - 10) / 2 - 10
+
+#define kCenterTopHeight                       32
+
+// 延时执行
+#define kDelayTime                            dispatch_after(dispatch_time ( DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC))
+#define DELAYEXECUTE(delayTime,func)          (kDelayTime, dispatch_get_main_queue(), ^{func;}))
+
+// 本地存储
+#define kUserDefaults    [NSUserDefaults standardUserDefaults]
+#define kCachesPath      [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define kDocumentPath    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define kLibraryPath     [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+// Demo 最后预览图保存的文件夹
+#define BHD_DemoPreviewCaptureFolderPath   [kLibraryPath stringByAppendingPathComponent:@"DemoPreviewCaptureFolder"]
+
+#endif /* LSDisplayHeader_h */

@@ -112,6 +112,7 @@ const GLubyte Indices7[] = {
 
 - (void)setupContext {
     
+    // iOS系统默认支持OpenGl ES1.0、ES2.0以及ES3.0 3个版本，三者之间并不是简单的版本升级，设计理念甚至完全不同，初始化EAGLContext时指定ES版本号
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
     _context = [[EAGLContext alloc] initWithAPI:api];
     

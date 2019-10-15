@@ -6,8 +6,8 @@
 //  Copyright © 2017年 shaoqiu. All rights reserved.
 //
 
-#import "SHSuperViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ViewController5 : SHSuperViewController
+@interface ViewController5 : UIViewController
 
 @end
